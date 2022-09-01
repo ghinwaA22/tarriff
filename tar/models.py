@@ -21,7 +21,7 @@ class Chapter(models.Model):
     note3 = models.TextField(max_length=200, verbose_name='Extra', null=True, blank=True)
 
     def __str__(self):
-        return f'{self.title}'
+        return str(self.title)
 
 
 class Item(models.Model):

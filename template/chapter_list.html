@@ -5,13 +5,13 @@
     <title>{{ page_title }}</title>
 </head>
 <body>
-<h1>{{ page_title }}</h1>
+
 <table border="1">
     <h1>{{ section }}</h1>
     <thead>
 
      <tr>
-      <th>chapter.Title</th>
+      <th>Title</th>
       <th>Note</th>
       <th>Extra Note</th>
       <th>Extra</th>
@@ -20,10 +20,10 @@
     <tbody>
     {% for chapter in section.chapters.all %}
     <tr>
-        <td>{{chapter.title}}</td>
+        <td><a href="{% url 'item_list' chapter.pk %}">{{chapter.title}}</a></td>
         <td>{{chapter.note1}}</td>
         <td>{{chapter.note2}}</td>
-        <td>{{chapter.section_id}}</td>
+        <td>{{chapter.note3}}</td>
     </tr>
     {% endfor %}
     </tbody>

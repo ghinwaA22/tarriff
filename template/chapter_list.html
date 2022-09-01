@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page_title }}</title>
+</head>
+<body>
+<h1>{{ page_title }}</h1>
+<table border="1">
+    <h1>{{ section }}</h1>
+    <thead>
+
+     <tr>
+      <th>chapter.Title</th>
+      <th>Note</th>
+      <th>Extra Note</th>
+      <th>Extra</th>
+     </tr>
+    </thead>
+    <tbody>
+    {% for chapter in section.chapters.all %}
+    <tr>
+        <td>{{chapter.title}}</td>
+        <td>{{chapter.note1}}</td>
+        <td>{{chapter.note2}}</td>
+        <td>{{chapter.section_id}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

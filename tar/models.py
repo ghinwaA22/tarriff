@@ -4,21 +4,21 @@ from django.db import models
 
 
 class Section(models.Model):
-    title = models.TextField(max_length=200, verbose_name='Title', null=True, blank=True)
-    note1 = models.TextField(max_length=200, verbose_name='Note', null=True, blank=True)
-    note2 = models.TextField(max_length=200, verbose_name='Extra Note', null=True, blank=True)
-    note3 = models.TextField(max_length=200, verbose_name='Extra', null=True, blank=True)
+    title = models.TextField(max_length=200, verbose_name='Title', null=True, blank=False)
+    note1 = models.TextField(max_length=200, verbose_name='Note', null=True, blank=False)
+    note2 = models.TextField(max_length=200, verbose_name='Extra Note', null=True, blank=False)
+    note3 = models.TextField(max_length=200, verbose_name='Extra', null=True, blank=False)
 
     def __str__(self):
         return str(self.title)
 
 
 class Chapter(models.Model):
-    section_id = models.ForeignKey(Section, related_name='chapters', on_delete=models.CASCADE, null=True, blank=True)
-    title = models.TextField(max_length=200, verbose_name='Title', null=True, blank=True)
-    note1 = models.TextField(max_length=200, verbose_name='Note', null=True, blank=True)
-    note2 = models.TextField(max_length=200, verbose_name='Extra Note', null=True, blank=True)
-    note3 = models.TextField(max_length=200, verbose_name='Extra', null=True, blank=True)
+    section_id = models.ForeignKey(Section, related_name='chapters', on_delete=models.CASCADE, null=True, blank=False)
+    title = models.TextField(max_length=200, verbose_name='Title', null=True, blank=False)
+    note1 = models.TextField(max_length=200, verbose_name='Note', null=True, blank=False)
+    note2 = models.TextField(max_length=200, verbose_name='Extra Note', null=True, blank=False)
+    note3 = models.TextField(max_length=200, verbose_name='Extra', null=True, blank=False)
 
     def __str__(self):
         return str(self.title)

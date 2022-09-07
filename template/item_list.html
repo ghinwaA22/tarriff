@@ -1,16 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{page_title}}</title>
-</head>
-<body>
-<table border="1">
+{% extends 'base.html' %}
+ {% block title %} {{page_title}} {% endblock %}
+
+ {% block breadcrumb %}
+        <li class="breadcrumb-item "><a href="{% url 'section_list' %}"> Sections</a></li>
+        <li class="breadcrumb-item "><a href="{% url 'chapter_list' section.pk %}">{{section}}</a></li>
+        <li class="breadcrumb-item active">{{chapter}}</li>
+{% endblock %}
+
+{% block content%}
+<table class="table table-striped table-bordered" style="margin:20px">
     <thead>
      <tr>
-      <th>Title</th>
-      <th>Code</th>
+      <th>Code1</th>
+      <th>Code2</th>
+      <th>Code3</th>
+      <th>Code4</th>
+      <th>dash</th>
       <th>Description</th>
+      <th>chapter</th>
+      <th>section</th>
       <th>Tax</th>
       <th>Unit</th>
      </tr>
@@ -18,16 +26,19 @@
     <tbody>
     {% for item in items %}
     <tr>
+        <td>{{ item.code1 }}</td>
+        <td>{{ item.code2 }}</td>
+        <td>{{ item.code3 }}</td>
+        <td>{{ item.code4 }}</td>
+        <td>{{ item.dach }}</td>
+        <td>{{ item.chapter_id }}</td>
+        <td>{{ item.chapter_id.section_id }}</td>
         <td>{{ item.desc }}</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ item.tax }}</td>
+        <td>{{ item.unit }}</td>
+
     </tr>
     {% endfor %}
     </tbody>
 </table>
-
-
-
-</body>
-</html>
+{% endblock %}

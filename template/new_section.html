@@ -1,0 +1,18 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add section</title>
+
+</head>
+<body>
+<form method="post" novalidate >
+  {% csrf_token %}
+   {% include 'include/form.html' %}
+
+ <button type="submit" class="btn btn-success" >Add</button>
+
+</form>
+</body>
+</html>
